@@ -37,13 +37,13 @@ class Student:
                 f'\nЗавершённые курсы: {", ".join(self.finished_courses)}')
 
     def __eq__(self, other):
-        return self._find_avg() == other._find_avg()
+        return self.avg_grades == other.avg_grades
 
     def __lt__(self, other):
-        return self._find_avg() < other._find_avg()
+        return self.avg_grades < other.avg_grades
 
     def __le__(self, other):
-        return self._find_avg() <= other._find_avg()
+        return self.avg_grades <= other.avg_grades
 
     def rate_lekt(self, lektor, course, grade):
         '''оценивание лектора'''
@@ -84,13 +84,13 @@ class Lekturer(Mentor):
                 f'\nСредняя оценка за лекции: {self.update_avg()}')
 
     def __eq__(self, other):
-        return self._find_avg_lekt() == other._find_avg_lekt()
+        return self.avg_grade == other.avg_grade
 
     def __lt__(self, other):
-        return self._find_avg_lekt() < other._find_avg_lekt()
+        return self.avg_grade < other.avg_grade
 
     def __le__(self, other):
-        return self._find_avg_lekt() <= other._find_avg_lekt()
+        return self.avg_grade <= other.avg_grade
 
 class Reviewer(Mentor):
 
@@ -185,4 +185,7 @@ print(reviewer2)
 
 print(all_grades_students(lst_students, 'python'))
 print(all_grades_lekturer(lst_lekturer, 'git'))
+
+print(student1 > student2)
+print(lekt1 >= lekt2)
 
